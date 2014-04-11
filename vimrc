@@ -1,6 +1,9 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Bastien Faure personal .vimrc						"
 "									"
+" Install vim with Python and clipboard support :			"	
+" apt-get install vim-gtk						"
+" 									"
 " Install vim vundle :							"
 " git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle	"
 "									"
@@ -48,3 +51,4 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 
 nmap <F1> :NERDTreeToggle<CR>
 nmap <F2> :TagbarToggle<CR>
+nmap <F3> :GundoToggle<CR>
