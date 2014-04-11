@@ -4,7 +4,6 @@
   new_tab = <Ctrl>t
   next_tab = <Ctrl>Right
   prev_tab = <Ctrl>Left
-  close_term = <Ctrl>w
 [profiles]
   [[default]]
     scrollbar_position = hidden
