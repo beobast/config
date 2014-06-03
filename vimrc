@@ -20,9 +20,10 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'jceb/vim-orgmode'
 
 " Load indentation rules and plugins according to the detected filetype.
-filetype on
+filetype off
 filetype plugin indent on
 filetype plugin on
 
