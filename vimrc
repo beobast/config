@@ -1,13 +1,13 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Bastien Faure personal .vimrc                                         "
-"                                                                       "
-" Install vim vundle :                                                  "
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle   "
-"                                                                       "
-" Tagbar depends on                                                     "
-" apt-get install exuberants-ctags                                      "
-"                                                                       "
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bastien Faure personal .vimrc                                                 "
+"                                                                               "
+" Install vim vundle :                                                          "
+" git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim   "
+"                                                                               "
+" Tagbar depends on :                                                           "
+" sudo apt-get install exuberants-ctags                                         "
+"                                                                               "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
 filetype off
