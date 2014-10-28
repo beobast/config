@@ -1,0 +1,70 @@
+## Openbox autostart.sh
+## ====================
+## Lorsque vous vous connectez à votre session Openbox,
+## ce script autostart s'exécute afin de configurer votre environnement
+## et lancer vos applications favorites.
+##
+## Note*: quelques programmes tels que 'nm-applet'
+## sont lancé depuis le fichier OPENBOX-XDG.
+## lancer '/usr/lib/openbox/openbox-xdg-autostart --list'
+## pour lister les programmes pris en compte par ce dossier.
+##
+## Plus d'informations:
+## http://openbox.org/wiki/Help:Autostart
+##
+## Si vous configurez un truc cool, n'hésitez pas à le partager sur le forum:
+## http://crunchbanglinux-fr.org/forums/
+##
+## Have fun & happy CrunchBangin'! :)
+
+## Prise compte du trousseau GNOME
+eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+
+## Definir la couleur de fond
+hsetroot -solid "#2E3436" &
+
+## Group start:
+## 1. nitrogen - affiche le fond d'écran
+## 2. compositor - lance les effets composite
+## 3. sleep - temps d'attente avant le lancement du compositeur
+## 4. tint2 - barre de tâches
+(\
+nitrogen --restore && \
+cb-compositor --start &&\
+sleep 2s && \
+tint2 \
+) &
+
+## Contrôleur de volume dans la zone de notification
+(sleep 3s && pnmixer) &
+
+## Network Manager Applet
+#(sleep 3s && nm-applet) &
+
+## Lancement du démon thunar
+thunar --daemon &
+
+## Détection et configuration du touchpad. voir 'man synclient' pour plus d'infos.
+if egrep -iq 'touchpad' /proc/bus/input/devices; then
+    synclient VertEdgeScroll=1 &
+    synclient TapButton1=1 &
+fi
+
+## Économiseur d'écran
+#xscreensaver -no-splash &
+
+## Gestionnaire de presse-papier
+(sleep 3s && clipit) &
+
+## Configuration de la répétition des touches - délai de 250 ms et 25 caractères par seconde.
+## Éditer selon vos préférences.
+xset r rate 250 25 &
+
+## Désactiver les bips système
+xset b off &
+
+## Lancer conky
+conky -d &
+
+## Lancer dock
+(sleep 5s && wbar) &
