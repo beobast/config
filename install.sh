@@ -1,7 +1,7 @@
 #! /bin/sh
 #####################################################
-#  Install personal configs	                        #
-#  Author: Bastien Faure <http://bastienfaure.fr>   #
+#  Install personal configs	                    #
+#  Author: Bastien Faure <https://bastienfaure.fr>  #
 #                        <contact@bastienfaure.fr>  #
 #####################################################
 
@@ -29,8 +29,7 @@ if [ "$answer" = "y" ]; then
 	cp ./terminator-config ~/.config/terminator/config
 fi
 
-ask "Install sources.list ?"
+ask "Install Solarized dircolors ?"
 if [ "$answer" = "y" ]; then
-	sudo cp /etc/apt/sources.list /etc/apt/sources.list.old
-	sudo cp ./sources.list /etc/apt/sources.list
+	cp ./dircolors ~/.dircolors
 fi
