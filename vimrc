@@ -1,11 +1,11 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ~/.vimrc - Bastien Faure                                                     "
 "                                                                              "
-" Install vim vundle :                                                         "
+" Install vim vundle:                                                          "
 " git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim  "
 "                                                                              "
-" Tagbar depends on exuberants-ctags                                           "
-"                                                                              "
+" Remove vertical split bar background (VertSplit) inside colorscheme          "
+"                                                                              " 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set nocompatible
@@ -20,7 +20,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
-Plugin 'majutsushi/tagbar'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'aperezdc/vim-template'
@@ -35,17 +34,10 @@ Plugin 'tpope/vim-speeddating'
 Plugin 'vim-scripts/utl.vim'
 Plugin 'jceb/vim-orgmode'
 
-" Vim Snipmate - Automatic text insertion
-Plugin 'marcweber/vim-addon-mw-utils'
-Plugin 'tomtom/tlib_vim'
-Plugin 'garbas/vim-snipmate'
-
 call vundle#end()
 
-" Load indentation rules and plugins according to the detected filetype
-filetype plugin indent on
-filetype plugin on
-syntax on                       " Enable syntax highlighting
+filetype plugin indent on   " Load indentation rules and plugins according to the detected filetype
+syntax on                   " Enable syntax highlighting
 
 set background=dark         " Dark background
 set showcmd                 " Show (partial) command in status line
@@ -67,6 +59,8 @@ set expandtab
 set nowrap
 set colorcolumn=80
 set conceallevel=2
+set fillchars=vert:\│
+set wildmode=full
 
 let g:solarized_termtrans = 1   " For terminals with transparency
 colorscheme solarized           " Use the best color scheme ever
@@ -75,10 +69,12 @@ let jshint2_read = 0            " Lint JavaScript files after reading it
 let jshint2_save = 0            " Lint JavaScript files after saving it
 let g:syntastic_javascript_checkers = ['jshint']
 
-let g:javascript_conceal = 1
+let g:javascript_conceal = 0
 let g:javascript_conceal_function   = 'ƒ'
 let g:javascript_conceal_return     = '→'
 let g:javascript_ignore_javaScriptdoc = 1
+
+let g:gundo_prefer_python3 = 1
 
 " Vim jump to the last position when reopening a file
 if has("autocmd")
@@ -90,6 +86,5 @@ map <c-k> <c-w>k
 map <c-h> <c-w>h
 map <c-l> <c-w>l
 
-nmap <F1> :NERDTreeToggle<CR>
-nmap <F2> :TagbarToggle<CR>
-nmap <F3> :GundoToggle<CR>
+map <F1> :NERDTreeToggle<CR>
+nmap <F2> :GundoToggle<CR>
